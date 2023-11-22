@@ -88,10 +88,4 @@ function getAwardedEcoPoints(ecoscore, price)
     return 0;
 }
 
-// Given an amount of EcoPoints, return the equivalent value in USD(Multiply by 0.025)
-function getDiscount(ecopoints)
-{
-    return 0.00;
-}
-
-export { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getAwardedEcoPoints, getDiscount };
+export { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getAwardedEcoPoints };

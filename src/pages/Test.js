@@ -1,5 +1,6 @@
 import React from "react";
-import { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getAwardedEcoPoints, getDiscount } from "./../scripts/RestaurantData.js";
+import { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getAwardedEcoPoints } from "./../scripts/RestaurantData.js";
+import { createToken, getEcoPoints, addEcoPoints, subtractEcoPoints, getDiscount } from "./../scripts/EcoPoints.js";
 
 function itemsRender(order)
 {
@@ -20,6 +21,11 @@ function Test() {
     let restaurantAddress = "N/A";
     let ecoscore = 0;
     let price = 0.00;
+
+    //EDIT PARAMETERS FOR ECOPOINTS HERE
+    let email = "N/A";
+    let add_amount = 0;
+    let subtract_amount = 0;
     let ecopoints = 0;
 
     return (
@@ -41,8 +47,6 @@ function Test() {
             <p>{ecoscore}</p>
             <p style={{textDecoration: "underline"}}>price: </p>
             <p>{price}</p>
-            <p style={{textDecoration: "underline"}}>ecopoints: </p>
-            <p>{ecopoints}</p>
             <br></br>
 
             <p style={{fontWeight: "bold"}}>getRestaurants</p>
@@ -78,6 +82,41 @@ function Test() {
             <p style={{fontWeight: "bold"}}>getEcoPoints</p>
             <p style={{textDecoration: "underline"}}>Method Result:</p>
             <p>{getAwardedEcoPoints(ecoscore, price)}</p>
+            <br></br>
+
+            <br></br>
+            <p style={{fontWeight: "bold", textDecoration: "underline"}}>EcoPoints Functions</p>
+            <br></br>
+
+            <p style={{fontWeight: "bold"}}>Parameters</p>
+            <p style={{textDecoration: "underline"}}>email: </p>
+            <p>{email}</p>
+            <p style={{textDecoration: "underline"}}>amount(for addEcoPoints): </p>
+            <p>{add_amount}</p>
+            <p style={{textDecoration: "underline"}}>amount(for subtractEcoPoints): </p>
+            <p>{subtract_amount}</p>
+            <p style={{textDecoration: "underline"}}>ecopoints: </p>
+            <p>{ecopoints}</p>
+            <br></br>
+
+            <p style={{fontWeight: "bold"}}>createToken</p>
+            <p style={{textDecoration: "underline"}}>Method Result:</p>
+            <p>{createToken(email).toString()}</p>
+            <br></br>
+
+            <p style={{fontWeight: "bold"}}>getEcoPoints</p>
+            <p style={{textDecoration: "underline"}}>Method Result:</p>
+            <p>{getEcoPoints(email)}</p>
+            <br></br>
+
+            <p style={{fontWeight: "bold"}}>addEcoPoints</p>
+            <p style={{textDecoration: "underline"}}>Method Result:</p>
+            <p>{addEcoPoints(email, add_amount)}</p>
+            <br></br>
+
+            <p style={{fontWeight: "bold"}}>subtractEcoPoints</p>
+            <p style={{textDecoration: "underline"}}>Method Result:</p>
+            <p>{subtractEcoPoints(email, subtract_amount)}</p>
             <br></br>
 
             <p style={{fontWeight: "bold"}}>getDiscount</p>

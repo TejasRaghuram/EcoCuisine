@@ -58,4 +58,10 @@ function subtractEcoPoints(email, amount)
     return 0;
 }
 
-export { createToken, getEcoPoints, addEcoPoints, subtractEcoPoints };
+// Given an amount of EcoPoints, return the equivalent value in USD(Multiply by 0.025)
+function getDiscount(ecopoints)
+{
+    return 0.00;
+}
+
+export { createToken, getEcoPoints, addEcoPoints, subtractEcoPoints, getDiscount };
