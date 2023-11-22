@@ -4,7 +4,9 @@ The functions in this file are to be implemented by Aryan Kashyap
 
 Run the project by executing "npm start" in the terminal
 Ctrl-C to terminate the project
+
 Go to http://localhost:3000/test to test out the functions
+The parameters can be edited in pages/Test.js
 
 Start by creating a new branch called "restaurant-data-dev"
 Commit often, and add concise, professional commit messages
@@ -44,17 +46,23 @@ Have fun!
 // This function will return a string array of all the restaurants represented as such: "[Name] - [Address]"
 function getRestaurants()
 {
-    return [""];
+    return ["N/A"];
 }
 
 // This function will return an object array with the items in the menu of a restaurant, given the restaurant's string form
 function getMenu(restaurant)
 {
-    return [{name: "", cost: "", time: "", ecoscore: ""}];
+    return [{name: "N/A", cost: 0, time: 0, ecoscore: 0}];
 }
 
 // This function will return the price of an order, given an object array of the items
 function getOrderPrice(order)
+{
+    return 0.00;
+}
+
+// This function will calculate the delivery fee, given the current address and the restaurant address
+function getDeliveryFee(currentAddress, restaurantAddress)
 {
     return 0.00;
 }
@@ -79,4 +87,10 @@ function getEcoPoints(ecoscore, price)
     return 0;
 }
 
-export { getRestaurants, getMenu, getOrderPrice, getDeliveryTime, getOrderEcoScore, getEcoPoints };
+// Given an amount of EcoPoints, return the equivalent value in USD(Multiply by 0.025)
+function getDiscount(ecopoints)
+{
+    return 0.00;
+}
+
+export { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getEcoPoints, getDiscount };
