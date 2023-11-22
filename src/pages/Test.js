@@ -1,5 +1,5 @@
 import React from "react";
-import { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getEcoPoints, getDiscount } from "./../scripts/RestaurantData.js";
+import { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getAwardedEcoPoints, getDiscount } from "./../scripts/RestaurantData.js";
 
 function itemsRender(order)
 {
@@ -77,7 +77,7 @@ function Test() {
 
             <p style={{fontWeight: "bold"}}>getEcoPoints</p>
             <p style={{textDecoration: "underline"}}>Method Result:</p>
-            <p>{getEcoPoints(ecoscore, price)}</p>
+            <p>{getAwardedEcoPoints(ecoscore, price)}</p>
             <br></br>
 
             <p style={{fontWeight: "bold"}}>getDiscount</p>

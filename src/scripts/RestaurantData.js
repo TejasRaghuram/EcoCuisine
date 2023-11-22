@@ -12,6 +12,7 @@ Start by creating a new branch called "restaurant-data-dev"
 Commit often, and add concise, professional commit messages
 They should have all "important" words capitalized, such as the following:
 "Implemented the getData Function"
+You can see the messages of existing commits for more examples
 
 To start, create a MongoDB database to hold the restaurants
 Populate it with 2-3 restaurants manually
@@ -82,7 +83,7 @@ function getOrderEcoScore(currentAddress, restaurantAddress, order)
 }
 
 // Given the EcoScore and total price of an order, return how many EcoPoints(integer) should be awarded(EcoScore% of the price)
-function getEcoPoints(ecoscore, price)
+function getAwardedEcoPoints(ecoscore, price)
 {
     return 0;
 }
@@ -93,4 +94,4 @@ function getDiscount(ecopoints)
     return 0.00;
 }
 
-export { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getEcoPoints, getDiscount };
+export { getRestaurants, getMenu, getOrderPrice, getDeliveryFee, getDeliveryTime, getOrderEcoScore, getAwardedEcoPoints, getDiscount };
