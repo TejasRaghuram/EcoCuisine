@@ -10,14 +10,17 @@ const {
     Hbar 
 } = require("@hashgraph/sdk");
 const client = Client.forTestnet();
+const { TokenInfoQuery } = require("@hashgraph/sdk");
 
+// Set up client
 client.setOperator(myAccountId, PrivateKey.fromString(myPrivateKey));
 client.setDefaultMaxTransactionFee(new Hbar(100));
 
-// Functions
-function createToken(id, metaData) {
+
+function createToken(username) {
+    const metaData = "0";
     const tokenCreateTx = new TokenCreateTransaction()
-        .setTokenName(id)
+        .setTokenName(username)
         .setTokenSymbol("ID")
         .setTokenType(TokenType.NonFungibleUnique) // Set the token type to Non-Fungible Unique
         .setSupplyType(TokenSupplyType.Finite) // Set the supply type to finite
@@ -44,15 +47,24 @@ function createToken(id, metaData) {
         });
 }
 
+async function getEcoPoints(username) {
+    try {
+        const tokenInfo = await new TokenInfoQuery()
+            .setTokenId(username)
+            .execute(client);
 
-// This function will return the amount of EcoPoints a user(token) has, given the user's email
-function getEcoPoints(email)
-{
-    return 0;
+        const metadata = tokenInfo.tokenMemo; // Extracting metadata (tokenMemo in HTS)
+        // Assuming the metadata is directly the number of points (as a string)
+        const points = parseInt(metadata, 10);
+
+        return isNaN(points) ? 0 : points; // Return 0 if the metadata is not a valid number
+    } catch (error) {
+        console.error("Error fetching token metadata:", error);
+        throw error;
+    }
 }
 
-// This function will add EcoPoints to a user's corresponding token, given the user's email and the amount of EcoPoints to be added
-// It will return the resulting amount of EcoPoints the user has
+
 function addEcoPoints(email, amount)
 {
     return 0;
