@@ -23,7 +23,7 @@ Specific instructions detailing what each function does can be found above the f
 Delete them after completing the corresponding function
 
 You may have to modify the functions a little bit so that they work with Hedera and blockchain
-Make sure the main idea is still there if you do
+Make sure the main idea is still there if you do\
 
 Delete this message after the work is done, just before merging
 
@@ -61,7 +61,7 @@ function subtractEcoPoints(email, amount)
 // Given an amount of EcoPoints, return the equivalent value in USD(Multiply by 0.025)
 function getDiscount(ecopoints)
 {
-    return 0.00;
+    return ecopoints * 0.025;
 }
 
 export { createToken, getEcoPoints, addEcoPoints, subtractEcoPoints, getDiscount };
