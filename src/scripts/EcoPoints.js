@@ -55,10 +55,14 @@ function addEcoPoints(email, amount)
 // It will return the resulting amount of EcoPoints the user has
 function subtractEcoPoints(email, amount)
 {
-    return 0;
+    return 0;   
 }
 
-// Given an amount of EcoPoints, return the equivalent value in USD(Multiply by 0.025)
+/**
+ * Calculates the discount based on the given eco points.
+ * @param {number} ecopoints - The number of eco points.
+ * @returns {number} The discount amount.
+ */
 function getDiscount(ecopoints)
 {
     return ecopoints * 0.025;
