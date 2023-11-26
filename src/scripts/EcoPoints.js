@@ -17,65 +17,126 @@ client.setOperator(myAccountId, PrivateKey.fromString(myPrivateKey));
 client.setDefaultMaxTransactionFee(new Hbar(100));
 
 
-function createToken(username) {
-    const metaData = "0";
+async function createToken(username) {
     const tokenCreateTx = new TokenCreateTransaction()
         .setTokenName(username)
-        .setTokenSymbol("ID")
-        .setTokenType(TokenType.NonFungibleUnique) // Set the token type to Non-Fungible Unique
-        .setSupplyType(TokenSupplyType.Finite) // Set the supply type to finite
-        .setMaxSupply(1) // Set max supply to 1 for uniqueness
+        .setTokenSymbol("ECO")
+        .setTokenType(TokenType.FungibleCommon) // Fungible token
+        .setSupplyType(TokenSupplyType.Finite)
+        .setMaxSupply(1000000) // Set a max supply limit
+        .setInitialSupply(1) // Initial supply representing 1 EcoPoint
         .setTreasuryAccountId(myAccountId)
         .setAdminKey(PrivateKey.fromString(myPrivateKey).publicKey)
         .setSupplyKey(PrivateKey.fromString(myPrivateKey).publicKey)
-        .setTokenMemo(metaData) // Set metadata as token memo (Note: This is a simple string field)
         .freezeWith(client);
 
-    return tokenCreateTx.sign(PrivateKey.fromString(myPrivateKey))
-        .then(signedTx => signedTx.execute(client))
-        .then(txResponse => txResponse.getReceipt(client))
-        .then(receipt => {
-            if (receipt.status.toString() === "SUCCESS") {
-                return receipt.tokenId.toString();
-            } else {
-                throw new Error(`Token creation failed with status: ${receipt.status}`);
-            }
-        })
-        .catch(error => {
-            console.error("Error creating token:", error);
-            throw error;
-        });
-}
-
-async function getEcoPoints(username) {
     try {
+
+        // Sign with the token's admin key and submit to a Hedera network
+        const signedTx = await tokenCreateTx.sign(PrivateKey.fromString(myPrivateKey));
+        const txResponse = await signedTx.execute(client);
+        const receipt = await txResponse.getReceipt(client);
+        const tokenId = receipt.tokenId.toString();
         const tokenInfo = await new TokenInfoQuery()
-            .setTokenId(username)
+            .setTokenId(tokenId)
             .execute(client);
-
-        const metadata = tokenInfo.tokenMemo; // Extracting metadata (tokenMemo in HTS)
-        // Assuming the metadata is directly the number of points (as a string)
-        const points = parseInt(metadata, 10);
-
-        return isNaN(points) ? 0 : points; // Return 0 if the metadata is not a valid number
+        const tokenJson = {
+            "tokenName": tokenInfo.tokenName,
+            "tokenSymbol": tokenInfo.tokenSymbol,
+            "tokenId": tokenId
+        };
+        
+        // Write token info to tokens.json
+        const fs = require("fs");
+        fs.readFile("src/scripts/tokens.json", "utf8", (err, jsonString) => {
+            if (err) {
+                if (err.code === 'ENOENT') {
+                    console.log('File does not exist, creating a new one');
+                    fs.writeFile("src/scripts/tokens.json", JSON.stringify({[username]: tokenJson}), err => {
+                        if (err) {
+                            console.error("Error writing file:", err);
+                            return;
+                        }
+                    });
+                } else {
+                    console.error("Error reading file:", err);
+                }
+                return;
+            }
+            try {
+                const tokens = JSON.parse(jsonString);
+                tokens[username] = tokenJson;
+                fs.writeFile("src/scripts/tokens.json", JSON.stringify(tokens), err => {
+                    if (err) {
+                        console.error("Error writing file:", err);
+                        return;
+                    }
+                });
+            } catch (parseErr) {
+                console.error("Error parsing JSON:", parseErr);
+            }
+        });
+        return receipt.status.toString() === "SUCCESS" ? receipt.tokenId.toString() : false;
     } catch (error) {
-        console.error("Error fetching token metadata:", error);
-        throw error;
+        console.error("Error creating token:", error);
+        return false;
     }
 }
 
 
-function addEcoPoints(email, amount)
-{
-    return 0;
+async function getEcoPoints(username) {
+    const tokenId = await getTokenIdByUsername(username); // Retrieves the token ID
+
+    try {
+        const balanceQuery = new AccountBalanceQuery()
+            .setAccountId(username);
+        const balance = await balanceQuery.execute(client);
+
+        return balance.tokens._map.get(tokenId) || 0;
+    } catch (error) {
+        console.error("Error getting EcoPoints:", error);
+        return 0;
+    }
 }
 
-// This function will subtract EcoPoints to a user's corresponding token, given the user's email and the amount of EcoPoints to be added
-// It will return the resulting amount of EcoPoints the user has
-function subtractEcoPoints(email, amount)
-{
-    return 0;   
+async function addEcoPoints(username, amount) {
+    const tokenId = await getTokenIdByUsername(username); // Retrieves the token ID
+
+    try {
+        const mintTx = new TokenMintTransaction()
+            .setTokenId(tokenId)
+            .setAmount(amount)
+            .freezeWith(client);
+        const signTx = await mintTx.sign(PrivateKey.fromString(myPrivateKey));
+        const txResponse = await signTx.execute(client);
+        const receipt = await txResponse.getReceipt(client);
+
+        return receipt.status.toString() === "SUCCESS";
+    } catch (error) {
+        console.error("Error adding EcoPoints:", error);
+        return false;
+    }
 }
+
+async function subtractEcoPoints(username, amount) {
+    const tokenId = await getTokenIdByUsername(username); // Retrieves the token ID
+
+    try {
+        const burnTx = new TokenBurnTransaction()
+            .setTokenId(tokenId)
+            .setAmount(amount)
+            .freezeWith(client);
+        const signTx = await burnTx.sign(PrivateKey.fromString(myPrivateKey));
+        const txResponse = await signTx.execute(client);
+        const receipt = await txResponse.getReceipt(client);
+
+        return receipt.status.toString() === "SUCCESS";
+    } catch (error) {
+        console.error("Error subtracting EcoPoints:", error);
+        return false;
+    }
+}
+
 
 /**
  * Calculates the discount based on the given eco points.
