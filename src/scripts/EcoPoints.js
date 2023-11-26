@@ -1,4 +1,3 @@
-// Variables
 const myAccountId = "0.0.5947923";
 const myPrivateKey = "3030020100300706052b8104000a04220420e9c5a05be4b1dcd3e722fba6b450b0da72b99c8783e072c1a37fbaa52a1e24f5";
 const { 
@@ -11,11 +10,11 @@ const {
 } = require("@hashgraph/sdk");
 const client = Client.forTestnet();
 const { TokenInfoQuery } = require("@hashgraph/sdk");
-
-// Set up client
 client.setOperator(myAccountId, PrivateKey.fromString(myPrivateKey));
 client.setDefaultMaxTransactionFee(new Hbar(100));
 
+
+/* Functions */
 
 /**
  * Retrieves the token ID associated with a given username.
