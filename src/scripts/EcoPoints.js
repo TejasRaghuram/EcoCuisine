@@ -123,6 +123,12 @@ async function getEcoPoints(username) {
     }
 }
 
+/**
+ * Adds eco points to a user's account.
+ * @param {string} username - The username of the user.
+ * @param {number} amount - The amount of eco points to add.
+ * @returns {Promise<boolean>} - A promise that resolves to true if the eco points were added successfully, false otherwise.
+ */
 async function addEcoPoints(username, amount) {
     const tokenId = await getTokenIdByUsername(username); // Retrieves the token ID
 
