@@ -17,12 +17,22 @@ client.setOperator(myAccountId, PrivateKey.fromString(myPrivateKey));
 client.setDefaultMaxTransactionFee(new Hbar(100));
 
 
+function getTokenIdByUsername(username) {
+    const fs = require("fs");
+    const jsonString = fs.readFileSync("src/scripts/tokens.json", "utf8");
+    const tokens = JSON.parse(jsonString);
+    return tokens[username].tokenId;
+}
+
+
 /**
  * Creates a token with the given username.
  * @param {string} username - The username for the token.
  * @returns {Promise<string|boolean>} - The token ID if successful, otherwise false.
  */
 async function createToken(username) {
+
+    // Create the token
     const tokenCreateTx = new TokenCreateTransaction()
         .setTokenName(username)
         .setTokenSymbol("ECO")
