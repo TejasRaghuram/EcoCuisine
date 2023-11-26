@@ -17,6 +17,11 @@ client.setOperator(myAccountId, PrivateKey.fromString(myPrivateKey));
 client.setDefaultMaxTransactionFee(new Hbar(100));
 
 
+/**
+ * Retrieves the token ID associated with a given username.
+ * @param {string} username - The username for which to retrieve the token ID.
+ * @returns {string} - The token ID associated with the username.
+ */
 function getTokenIdByUsername(username) {
     const fs = require("fs");
     const jsonString = fs.readFileSync("src/scripts/tokens.json", "utf8");
