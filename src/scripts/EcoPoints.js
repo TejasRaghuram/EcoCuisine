@@ -148,6 +148,13 @@ async function addEcoPoints(username, amount) {
     }
 }
 
+/**
+ * Subtracts the specified amount of EcoPoints from the user's account.
+ * 
+ * @param {string} username - The username of the user.
+ * @param {number} amount - The amount of EcoPoints to subtract.
+ * @returns {Promise<boolean>} - A promise that resolves to true if the EcoPoints were successfully subtracted, false otherwise.
+ */
 async function subtractEcoPoints(username, amount) {
     const tokenId = await getTokenIdByUsername(username); // Retrieves the token ID
 
