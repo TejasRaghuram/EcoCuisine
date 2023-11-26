@@ -17,6 +17,11 @@ client.setOperator(myAccountId, PrivateKey.fromString(myPrivateKey));
 client.setDefaultMaxTransactionFee(new Hbar(100));
 
 
+/**
+ * Creates a token with the given username.
+ * @param {string} username - The username for the token.
+ * @returns {Promise<string|boolean>} - The token ID if successful, otherwise false.
+ */
 async function createToken(username) {
     const tokenCreateTx = new TokenCreateTransaction()
         .setTokenName(username)
