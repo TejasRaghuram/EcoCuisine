@@ -6,7 +6,7 @@ function Layout() {
         <div>
             <p>This is a Header</p>
             <Outlet/>
-            <p>This is a Footer</p>
+            <p>©2023 Aryan Kashyap, Tejas Raghuram, Vignesh Saravanakumar</p>
         </div>
     );
 }
