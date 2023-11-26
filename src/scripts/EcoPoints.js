@@ -103,6 +103,11 @@ async function createToken(username) {
 }
 
 
+/**
+ * Retrieves the EcoPoints balance for a given username.
+ * @param {string} username - The username to retrieve the EcoPoints balance for.
+ * @returns {Promise<number>} - The EcoPoints balance.
+ */
 async function getEcoPoints(username) {
     const tokenId = await getTokenIdByUsername(username); // Retrieves the token ID
 
