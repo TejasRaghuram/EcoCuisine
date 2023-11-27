@@ -30,6 +30,74 @@ p {
     height: 75px;
 }
 
+.auth_container {
+    width: 280px;
+    border-radius: 20px;
+    margin-left: calc(50vw - 160px);
+    margin-top: calc(40vh - 180px);
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.auth_header {
+    line-height: 0;
+}
+
+.auth_label {
+    width: 240px;
+    color: rgba(125, 90, 40, .5);
+    text-align: left;
+    display: inline-block;
+}
+
+.auth_input {
+    width: 240px;
+    color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgba(125, 90, 40, 0.5);
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.auth_link_label {
+    text-decoration: none;
+}
+
+.auth_link {
+    text-decoration: none;
+    color: rgb(90, 150, 90);
+}
+
+.auth_link:hover {
+    text-decoration: underline;
+}
+
+.auth_bottom_spacing {
+    height: calc(40vh - 200px);
+}
+
+.button {
+    height: 40px;
+    background-color: rgb(90, 150, 90);
+    border-style: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(70, 110, 70);
+}
+
+.auth_button {
+    width: 252px;
+}
+
 #header {
     position: fixed;
     left: 0;
