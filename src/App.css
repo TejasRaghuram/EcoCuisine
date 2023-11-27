@@ -14,10 +14,15 @@ h3 {
     font-size: 28px;
 }
 
+.spacing {
+    height: 75px;
+}
+
 #header {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
+    top: 10px;
 }
 
 #header_logo {
