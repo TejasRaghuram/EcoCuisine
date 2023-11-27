@@ -20,7 +20,7 @@ function Register() {
                 <input type="submit" value="Submit" class="button auth_button"/>
                 <br/>
                 <br/>
-                <Link to="./../Register" class="auth_link_label">Already a member? <span class="auth_link">Sign Up</span></Link>
+                <Link to="./../Login" class="auth_link_label">Already a member? <span class="auth_link">Log In</span></Link>
             </form>
             <div class="auth_bottom_spacing" />
         </div>

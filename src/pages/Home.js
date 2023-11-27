@@ -4,7 +4,7 @@ function Home() {
     return (
         <div>
             <div class="spacing" />
-            <p>This is the Home Page</p>
+            <h1>Welcome, User!</h1>
         </div>
     );
 }
