@@ -21,6 +21,11 @@ h3 {
     font-size: 28px;
 }
 
+p {
+    font-size: 16px;
+    line-height: 16px;
+}
+
 .spacing {
     height: 75px;
 }
@@ -46,7 +51,7 @@ h3 {
 }
 
 #footer {
-    color: rgba(125, 90, 40, .5)
+    color: rgba(125, 90, 40, .5);
 }
 
 #error_container {
