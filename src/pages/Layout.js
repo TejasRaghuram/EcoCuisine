@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Logo from './../images/logo.png';
 
 function Layout() {
     return (
         <div>
-            <p>This is a Header</p>
+            <img src={Logo}/>
+            <p>EcoCuisine</p>
             <Outlet/>
             <p>©2023 Aryan Kashyap, Tejas Raghuram, Vignesh Saravanakumar</p>
         </div>
