@@ -1,4 +1,9 @@
 * {
     background-color: rgb(240, 210, 170);
     color: rgb(125, 90, 40);
+    text-align: center;
+}
+
+#footer {
+    color: rgba(125, 90, 40, .5)
 }

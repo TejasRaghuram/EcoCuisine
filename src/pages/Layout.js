@@ -8,7 +8,7 @@ function Layout() {
             <img src={Logo} alt=""/>
             <p>EcoCuisine</p>
             <Outlet/>
-            <p>©2023 Aryan Kashyap, Tejas Raghuram, Vignesh Saravanakumar</p>
+            <p id="footer">©2023 Aryan Kashyap, Tejas Raghuram, Vignesh Saravanakumar</p>
         </div>
     );
 }
