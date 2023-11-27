@@ -132,3 +132,12 @@ p {
     vertical-align: middle;
     display: table-cell;
 }
+
+#landing_header {
+    line-height: 60px;
+}
+
+#landing_button {
+    height: 50px;
+    width: 250px;
+}
