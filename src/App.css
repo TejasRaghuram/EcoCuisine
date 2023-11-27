@@ -8,6 +8,13 @@
 
 body {
     background-color: rgb(240, 210, 170);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 64px;
+    line-height: 84px;
 }
 
 h3 {
@@ -40,4 +47,15 @@ h3 {
 
 #footer {
     color: rgba(125, 90, 40, .5)
+}
+
+#error_container {
+    width: calc(100vw - 40px);
+    height: 75vh;
+    display: table;
+}
+
+#error {
+    vertical-align: middle;
+    display: table-cell;
 }
