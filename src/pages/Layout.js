@@ -5,7 +5,7 @@ import Logo from './../images/logo.png';
 function Layout() {
     return (
         <div>
-            <img src={Logo}/>
+            <img src={Logo} alt=""/>
             <p>EcoCuisine</p>
             <Outlet/>
             <p>©2023 Aryan Kashyap, Tejas Raghuram, Vignesh Saravanakumar</p>
