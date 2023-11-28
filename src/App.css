@@ -145,7 +145,7 @@ p {
 }
 
 #landing_image {
-    height: calc(80vh - 320px);
+    height: calc(80vh - 350px);
 }
 
 #landing_button {
@@ -159,4 +159,9 @@ p {
 #landing_bottom {
     width: 100vw;
     height: 500px;
+}
+
+#home_subtitle {
+    color: rgba(125, 90, 40, .5);
+    margin-top: -50px;
 }
