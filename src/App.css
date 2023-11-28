@@ -125,7 +125,7 @@ p {
     width: calc(100vw - 40px);
     color: rgba(125, 90, 40, .5);
     position: absolute;
-    bottom: -75px;
+    bottom: -100px;
 }
 
 #error_container {
@@ -145,7 +145,7 @@ p {
 }
 
 #landing_image {
-    height: calc(80vh - 280px);
+    height: calc(80vh - 320px);
 }
 
 #landing_button {
