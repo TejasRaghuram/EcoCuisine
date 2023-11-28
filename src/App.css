@@ -48,7 +48,7 @@ p {
 
 .auth_label {
     width: 240px;
-    color: rgba(125, 90, 40, .5);
+    color: rgba(125, 90, 40, 0.5);
     text-align: left;
     display: inline-block;
 }
@@ -100,6 +100,35 @@ p {
     width: 252px;
 }
 
+.home_section_header {
+    height: 60px;
+    width: calc(100vw - 40px);
+    background-color: white;
+    border-radius: 10px;
+}
+
+.home_section_header_number {
+    width: 45px;
+    height: 45px;
+    margin-left: 20px;
+    border-radius: 22.5px;
+    background-color: lightgray;
+    color: white;
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+}
+
+.home_section_header_text {
+    width: calc(100vw - 130px); 
+    text-align: left;
+    color:rgba(125, 90, 40, 0.5);
+    padding-left: 25px;
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+}
+
 #header {
     position: fixed;
     left: 0;
@@ -123,7 +152,7 @@ p {
 #footer {
     height: 50px;
     width: calc(100vw - 40px);
-    color: rgba(125, 90, 40, .5);
+    color: rgba(125, 90, 40, 0.5);
     position: absolute;
     bottom: -100px;
 }
@@ -170,6 +199,6 @@ p {
 }
 
 #home_subtitle {
-    color: rgba(125, 90, 40, .5);
-    margin-top: -50px;
+    color: rgba(125, 90, 40, 0.5);
+    margin-top: -40px;
 }
