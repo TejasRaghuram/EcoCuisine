@@ -22,7 +22,6 @@ function Register() {
                 <br/>
                 <Link to="./../Login" class="auth_link_label">Already a member? <span class="auth_link">Log In</span></Link>
             </form>
-            <div class="auth_bottom_spacing" />
         </div>
     );
 }

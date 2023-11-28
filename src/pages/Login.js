@@ -22,7 +22,6 @@ function Login() {
                 <br/>
                 <Link to="./../Register" class="auth_link_label">Not a member? <span class="auth_link">Sign Up</span></Link>
             </form>
-            <div class="auth_bottom_spacing" />
         </div>
     );
 }
