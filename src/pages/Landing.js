@@ -7,7 +7,7 @@ function Landing() {
             <div class="spacing" />
             <h1 id="landing_header">Welcome<br/>to<br/>EcoCuisine!</h1>
             <img src={LandingImage} id="landing_image" alt=""></img>
-            <button onClick={()=>{}} class="button" id="landing_button">GET STARTED</button>
+            <button onClick={() => {}} class="button" id="landing_button">GET STARTED</button>
         </div>
     );
 }

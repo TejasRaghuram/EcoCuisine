@@ -161,6 +161,14 @@ p {
     height: 500px;
 }
 
+#logout {
+    width: 150px;
+    height: 50px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
 #home_subtitle {
     color: rgba(125, 90, 40, .5);
     margin-top: -50px;
