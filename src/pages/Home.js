@@ -1,12 +1,27 @@
 import React from "react";
 import Select from "react-select";
 
+function MenuItem(props) {
+    return (
+        <div>
+            <p class="menu_item_name">{props.name}</p>
+            <button class="button menu_item_price">${props.price}</button>
+        </div>
+    );
+}
+
 function Home() {
 
     const restaurants = [{ value: '1', label: 'one' }, { value: '2', label: 'two' }];
+
+    var menu = [];
+    for(let i = 0; i < 5; i++)
+    {
+        menu.push(<MenuItem name="Item" price="0"/>)
+    }
+    
     return (
         <div>
-            <button class="button" id="logout" onClick={() => {}}>LOG OUT</button>
             <div class="spacing" />
             <h1>Welcome!</h1>
             <h3 id="home_subtitle">Please place your order below</h3>
@@ -28,6 +43,9 @@ function Home() {
                 <h3 class="home_section_header_number">2</h3>
                 <h3 class="home_section_header_text">Place Order</h3>
             </div>
+            <div class="home_section">
+                {menu}
+            </div>
             <br/>
             <div class="home_section_header">
                 <h3 class="home_section_header_number">3</h3>
@@ -38,6 +56,7 @@ function Home() {
                 <h3 class="home_section_header_number">4</h3>
                 <h3 class="home_section_header_text">Order Confirmation</h3>
             </div>
+            <button class="button" id="logout" onClick={() => {}}>LOG OUT</button>
         </div>
     );
 }

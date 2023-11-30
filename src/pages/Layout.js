@@ -5,11 +5,12 @@ import Logo from './../images/logo.png';
 function Layout() {
     return (
         <div id="layout">
+            
+            <Outlet/>
             <div id="header">
                 <img id="header_logo" src={Logo} alt=""/>
                 <h3 id="header_text">EcoCuisine</h3>
             </div>
-            <Outlet/>
             <p id="footer">©2023 Aryan Kashyap, Tejas Raghuram, Vignesh Saravanakumar</p>
         </div>
     );
