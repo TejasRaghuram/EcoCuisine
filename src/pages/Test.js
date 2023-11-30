@@ -14,13 +14,17 @@ function itemsRender(order)
 
 function Test() {
     
+    
     //EDIT PARAMETERS FOR RESTAURANTDATA HERE
-    let restaurant = "N/A";
-    let order = [{name: "N/A", cost: 0, time: 0, ecoscore: 0}];
+    let restaurant = getRestaurants();
+    //let order = [{name: "N/A", cost: 0, time: 0, ecoscore: 0}];
+    let order = [{name: "Yummy1", cost: 10, time: 8, ecoscore: 7}, {name: "Yummy2", cost: 18, time: 8, ecoscore: 7}];
     let currentAddress = "N/A";
+    let restaurantLat = 42;
+    let restaurantLon = -70.4;
     let restaurantAddress = "N/A";
-    let ecoscore = 0;
-    let price = 0.00;
+    let ecoscore = getOrderEcoScore(currentAddress, restaurantLat, restaurantLon, order);
+    let price = (getOrderPrice(order) + getDeliveryFee(currentAddress, restaurantLat, restaurantLon)).toFixed(2);
 
     //EDIT PARAMETERS FOR ECOPOINTS HERE
     let email = "N/A";
@@ -66,17 +70,17 @@ function Test() {
 
             <p style={{fontWeight: "bold"}}>getDeliveryFee</p>
             <p style={{textDecoration: "underline"}}>Method Result:</p>
-            <p>{getDeliveryFee(currentAddress, restaurantAddress)}</p>
+            <p>{getDeliveryFee(currentAddress, restaurantLat, restaurantLon)}</p>
             <br></br>
 
             <p style={{fontWeight: "bold"}}>getDeliveryTime</p>
             <p style={{textDecoration: "underline"}}>Method Result:</p>
-            <p>{getDeliveryTime(currentAddress, restaurantAddress, order)}</p>
+            <p>{getDeliveryTime(currentAddress, restaurantLat, restaurantLon, order)}</p>
             <br></br>
 
             <p style={{fontWeight: "bold"}}>getOrderEcoScore</p>
             <p style={{textDecoration: "underline"}}>Method Result:</p>
-            <p>{getOrderEcoScore(currentAddress, restaurantAddress, order)}</p>
+            <p>{getOrderEcoScore(currentAddress, restaurantLat, restaurantLon, order)}</p>
             <br></br>
 
             <p style={{fontWeight: "bold"}}>getEcoPoints</p>
