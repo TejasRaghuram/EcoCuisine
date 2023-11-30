@@ -7,21 +7,24 @@ import Register from "./pages/Register";
 import Error from "./pages/Error";
 import Test from "./pages/Test";
 import './App.css';
+import { Auth0ProviderWithNavigate } from "./scripts/Authentication";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Landing/>}/>
-          <Route path="home" element={<Home/>}/>
-          <Route path="login" element={<Login/>}/>
-          <Route path="register" element={<Register/>}/>
-          <Route path="test" element={<Test/>}/>
-          <Route path="*" element={<Error/>}/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Auth0ProviderWithNavigate>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Landing/>}/>
+            <Route path="home" element={<Home/>}/>
+            <Route path="login" element={<Login/>}/>
+            <Route path="register" element={<Register/>}/>
+            <Route path="test" element={<Test/>}/>
+            <Route path="*" element={<Error/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Auth0ProviderWithNavigate>
   );
 }
 
