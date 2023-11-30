@@ -215,6 +215,10 @@ p {
     top: 15px;
 }
 
+#logout:hover {
+    cursor: pointer;
+}
+
 #home_subtitle {
     color: rgba(125, 90, 40, 0.5);
     margin-top: -40px;

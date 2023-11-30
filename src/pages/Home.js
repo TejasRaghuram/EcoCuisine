@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function MenuItem(props) {
     return (
@@ -33,6 +34,13 @@ function Home() {
     for(let i = 0; i < 5; i++)
     {
         order.push(<OrderItem name="Item" price="0"/>);
+    }
+
+    const { loginWithRedirect, user, isLoading } = useAuth0();
+
+    if(!isLoading && !user)
+    {
+        loginWithRedirect();
     }
 
     return (
@@ -97,7 +105,6 @@ function Home() {
                 <p style={{fontSize: '18px'}}>You have been awarded 0 EcoPoints.</p>
                 <p style={{fontSize: '24px', fontWeight: 'bold'}}>Thanks for dining with EcoCuisine!</p>
             </div>
-            <button class="button" id="logout" onClick={() => {}}>LOG OUT</button>
         </div>
     );
 }
