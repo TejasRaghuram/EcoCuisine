@@ -7,7 +7,7 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
 
   const domain = 'dev-moctnkcn2rhgowa6.us.auth0.com';
   const clientId = '67WEub2uYkuJpG28xIatM4Lo6OVe5KWF';
-  const redirectUri = 'http:localhost:3000/home';
+  const redirectUri = 'http://localhost:3000/home';
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);

@@ -9,8 +9,8 @@ import { Auth0ProviderWithNavigate } from "./scripts/Authentication";
 
 function App() {
   return (
-    <Auth0ProviderWithNavigate>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Auth0ProviderWithNavigate>
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Landing/>}/>
@@ -19,8 +19,8 @@ function App() {
             <Route path="*" element={<Error/>}/>
           </Route>
         </Routes>
-      </BrowserRouter>
-    </Auth0ProviderWithNavigate>
+      </Auth0ProviderWithNavigate>
+    </BrowserRouter>
   );
 }
 
