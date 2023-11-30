@@ -3,9 +3,18 @@ import Select from "react-select";
 
 function MenuItem(props) {
     return (
-        <div>
+        <div class="menu_item">
             <p class="menu_item_name">{props.name}</p>
             <button class="button menu_item_price">${props.price}</button>
+        </div>
+    );
+}
+
+function OrderItem(props) {
+    return (
+        <div>
+            <p class="menu_item_name">{props.name}</p>
+            <p class="menu_item_price">${props.price}</p>
         </div>
     );
 }
@@ -17,9 +26,15 @@ function Home() {
     var menu = [];
     for(let i = 0; i < 5; i++)
     {
-        menu.push(<MenuItem name="Item" price="0"/>)
+        menu.push(<MenuItem name="Item" price="0"/>);
     }
-    
+
+    var order = []
+    for(let i = 0; i < 5; i++)
+    {
+        order.push(<OrderItem name="Item" price="0"/>);
+    }
+
     return (
         <div>
             <div class="spacing" />
@@ -44,7 +59,14 @@ function Home() {
                 <h3 class="home_section_header_text">Place Order</h3>
             </div>
             <div class="home_section">
+                <h3 class="home_section_prompt">Menu:</h3>
                 {menu}
+                <br />
+                <h3 class="home_section_prompt" style={{height: '60px'}}>Your Order:</h3>
+                {order}
+                <br />
+                <h3 class="home_section_prompt">Total Price: $0</h3>
+                <button class="button home_section_next">NEXT</button>
             </div>
             <br/>
             <div class="home_section_header">
