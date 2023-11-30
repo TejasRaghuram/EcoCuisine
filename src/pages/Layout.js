@@ -4,7 +4,7 @@ import Logo from './../images/logo.png';
 
 function Layout() {
     return (
-        <div style={{position: 'relative'}}>
+        <div id="layout">
             <div id="header">
                 <img id="header_logo" src={Logo} alt=""/>
                 <h3 id="header_text">EcoCuisine</h3>
