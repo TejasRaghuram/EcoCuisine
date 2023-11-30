@@ -16,6 +16,7 @@ function App() {
             <Route index element={<Landing/>}/>
             <Route path="home" element={<Home/>}/>
             <Route path="test" element={<Test/>}/>
+            <Route path="*" element={<Error/>}/>
           </Route>
         </Routes>
       </Auth0ProviderWithNavigate>
