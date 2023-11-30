@@ -51,9 +51,9 @@ function Home() {
             <div class="spacing" />
             <h1>Welcome!</h1>
             <h3 id="home_subtitle">Please place your order below</h3>
-            <div class="home_section_header">
-                <h3 class="home_section_header_number">1</h3>
-                <h3 class="home_section_header_text">Select Restaurant</h3>
+            <div class="home_section_header" id={ section === 1 ? "selected_section" : "" }>
+                <h3 class="home_section_header_number" id={ section >= 1 ? "finished_number" : "" }>1</h3>
+                <h3 class="home_section_header_text" id={ section === 1 ? "current_section" : "" }>Select Restaurant</h3>
             </div>
             {
                 section === 1 && 
@@ -67,9 +67,9 @@ function Home() {
                 </div>
             }
             <br/>
-            <div class="home_section_header">
-                <h3 class="home_section_header_number">2</h3>
-                <h3 class="home_section_header_text">Place Order</h3>
+            <div class="home_section_header" id={ section === 2 ? "selected_section" : "" }>
+                <h3 class="home_section_header_number" id={ section >= 2 ? "finished_number" : "" }>2</h3>
+                <h3 class="home_section_header_text" id={ section === 2 ? "current_section" : "" }>Place Order</h3>
             </div>
             {
                 section === 2 &&
@@ -86,9 +86,9 @@ function Home() {
                 </div>
             }
             <br/>
-            <div class="home_section_header">
-                <h3 class="home_section_header_number">3</h3>
-                <h3 class="home_section_header_text">Review Order</h3>
+            <div class="home_section_header" id={ section === 3 ? "selected_section" : "" }>
+                <h3 class="home_section_header_number" id={ section >= 3 ? "finished_number" : "" }>3</h3>
+                <h3 class="home_section_header_text" id={ section === 3 ? "current_section" : "" }>Review Order</h3>
             </div>
             {
                 section === 3 &&
@@ -109,9 +109,9 @@ function Home() {
                 </div>
             }
             <br/>
-            <div class="home_section_header">
-                <h3 class="home_section_header_number">4</h3>
-                <h3 class="home_section_header_text">Order Confirmation</h3>
+            <div class="home_section_header" id={ section === 4 ? "selected_section" : "" }>
+                <h3 class="home_section_header_number" id={ section >= 4 ? "finished_number" : "" }>4</h3>
+                <h3 class="home_section_header_text" id={ section === 4 ? "current_section" : "" }>Order Confirmation</h3>
             </div>
             {
                 section === 4 &&

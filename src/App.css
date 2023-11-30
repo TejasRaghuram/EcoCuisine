@@ -223,3 +223,15 @@ p {
     color: rgba(125, 90, 40, 0.5);
     margin-top: -40px;
 }
+
+#selected_section {
+    border-radius: 10px 10px 0 0;
+}
+
+#finished_number {
+    background-color: rgb(90, 150, 90);
+}
+
+#current_section {
+    color: rgb(125, 90, 40);
+}
