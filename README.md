@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# EcoCuisine
+In a world where meals can be ordered with the click of a button, EcoCuisine strives to provide a more sustainable alternative to food delivery. EcoCuisine rewards users who make environmentally friendly choices with EcoPoints, which can be redeemed as discounts in future orders. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inspiration
+Our inspiration to develop this application stemmed from our experiences ordering food through platforms like Uber Eats. As we enjoyed the convenience of such services, we couldn't ignore the environmental impact of the food delivery industry. Recognizing the need for a more sustainable approach, we embarked on a mission to revolutionize the way food is delivered. Our goal is to introduce eco-friendly practices and innovative solutions that will contribute to a greener and more sustainable future for the food delivery sector.
 
-## Available Scripts
+## What it Does
+EcoCuisine is a food delivery platform where users are incentivized to make good choices in regards to the environment. They are rewarded for choosing restaurants that are closer to reduce emissions from car gas, as well as choosing meals that contain more organic ingredients and less environmentally taxing procedures, such as grilling. They are rewarded in the form of EcoPoints, which we represent using blockchain tokens. These tokens can then be redeemed for discounts on future orders, giving users a reason to think twice about the environment while ordering food.
 
-In the project directory, you can run:
+## How we built it
+We built this website on top of the JavaScript framework React. With its powerful idea of component based development along with its extraordinary routing system, we were able to create a UI that was not only appealing and elegant, but also user friendly and simple to use. To power the application, we used **MongoDB Atlas** to store data on restaurants and food, which allowed us to maintain a large amount of data in the cloud. We used this data to compute an EcoScore for each order, from which the amount of EcoPoints to be awarded was determined. We also used **Hedera** to track the EcoPoints of each user with blockchain technology. Our application revolved around these EcoPoints, and we found that using Hedera's revolutionary software, we were able to maintain the EcoPoints of each user as a token of fluctuating value, and this seemed like a robust solution. Finally, for the purpose of authentication, we used **Auth0**, which opened the door for users to not only sign in with Google, but also only have to sign in once, as the site will recognize the user in the future.
 
-### `npm start`
+## Challenges we ran into
+We ran into the most challenges when implementing the **MongoDB** database. We didn't have experience maintaining NoSQL databases, and the integration of the database with the React application was a little bit tricky, as we didn't want to have a back end running on our computer. At the end though, everything worked out, and we were able to use the database as needed. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Accomplishments that we're proud of
+We are proud of every part of this project, from the conceptualization to the execution, but perhaps what we are most proud of is our implementation of **Hedera**. Nobody in our team has ever used blockchain technology before. In fact, we weren't even sure what exactly blockchain was and what its capabilities were. Now, as a team, we are not only much more knowledgeable on the idea of blockchain as a whole, but thanks to Hedera's simple API service, we now have actually created something with it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What we learned
+Creating this project was nothing short of a journey for our team, and we know for sure that it has given us much knowledge to take with us in the future. For one, we learned how to effectively collaborate using Git and **Github**. We each worked in separate branches, and at the end, we merged in order to have a finished project. We communicated well throughout the entire development experience, which led to minimal merge conflicts. We also learned a great deal about blockchain through **Hedera**, and full stack web application development with React and **MongoDB**.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for EcoCuisine
+In the future, we would like to expand our database to include more data on restaurants and their menus. We would also like to alter the algorithm we use to compute EcoPoints to be awarded, as we feel like it could be improved to better reflect actual emissions. The main feature we would like to add to this application in the future, however, is an online payment service that allows our users to pay directly through the website to both us and the restaurants they are ordering from. 
